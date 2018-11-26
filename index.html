@@ -29,81 +29,7 @@
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
-<?php
-  
-  //Если форма отправлена
-  if(isset($_POST['submit'])) {
- //Проверка Поля ИМЯ
-  if(trim($_POST['contactname']) == '') {
-  $hasError = true;
-  } else {
-  $name = trim($_POST['contactname']);
-  }
- //Проверка поля ТЕМА
-  if(trim($_POST['subject']) == '') {
-  $hasError = true;
-  } else {
-  $subject = trim($_POST['subject']);
-  }
- //Проверка правильности ввода EMAIL
-  if(trim($_POST['email']) == '')  {
-  $hasError = true;
-  } else if (!eregi("^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,4}$", trim($_POST['email']))) {
-  $hasError = true;
-  } else {
-  $email = trim($_POST['email']);
-  }
- //Проверка наличия ТЕКСТА сообщения
-  if(trim($_POST['message']) == '') {
-  $hasError = true;
-  } else {
-  if(function_exists('stripslashes')) {
-  $comments = stripslashes(trim($_POST['message']));
-  } else {
-  $comments = trim($_POST['message']);
-  }
-  
-  ?>
-  <!--<script>
-	var b="/yusupova/index.php?param=show-4";
-	//var param="show-4";
-  window.location.href = b;</script-->
-  <!--<script src="js/main.js"></script>-->
-  <?
-  }
- //Если ошибок нет, отправить email
-	//if(!isset($hasError)) {
-		//$emailTo = 'ros-izolit@yandex.ru'; 
-		//$body = "Name: $name \n\nEmail: $email \n\nSubject: $subject \n\nComments:\n $comments";
-		//$headers = 'From: My Site <'.$emailTo.'>'.'\r\n'.'Reply-To: '.$email;
 
-		//mail($emailTo, $subject, $body, $headers);
-		//$emailSent = true;
-		//
-//$info1=addslashes($info);
-
-////$mesg='Имя: '.$name.'<br> e-mail: '.$email.'<br>Текст: '.$comments;
-
-////$from='From: zubasta@zubasta.ru \r\n';
-////$mail1='ros-izolit@yandex.ru';
-
-////mail('ros-izolit@yandex.ru', "Сообщение персонального сайта", 'ASDFGADFHDGH', 'From: zubasta@zubasta.ru \r\n');
-	//}
-//$info = 'SDGFASDFHJ ADFGADHTJKfghdfyj sfjfsgjdgki srfudtyityou';
-	//$info1=strip_tags($info);
-
-//$info1=addslashes($info);
-
-$mesg='Имя: '.$contactname.' e-mail: '.$email.' Текст: '.$comments;
-
-$from="From: julia@yusupova.com \r\n";
-
-$mail1='ros-izolit@yandex.ru';
-
-mail($mail1, "Сообщение с персонального сайта", $mesg, $from);	
-}
-
-  ?>
   
     <div class="bg-overlay"></div>
 
@@ -173,9 +99,9 @@ mail($mail1, "Сообщение с персонального сайта", $mes
 									<p>Июль 2005 - Факультет переподготовки специалистов Санкт-Петербургского Государственного Технического Университета, центр обучения Microsoft, <strong>курс «Разработка web-приложений с использованием PHP и MySQL»</strong>.</p>
 									<p>Сентябрь 2004 - Факультет переподготовки специалистов Санкт-Петербургского Государственного Технического Университета, центр обучения Microsoft, <strong>курс «Администрирование Windows 2000/XP»</strong>. </p>
 									<p>Февраль-март 2001 - Факультет переподготовки специалистов Санкт-Петербургского Государственного Технического Университета, центр обучения Microsoft, <strong>курсы «Интернет-технологии: разработка динамических Web-узлов»</strong>. </p>
-									<p>1993-1998 - <strong>аспирантура по специальности «Астрофизика и радиоастрономия»</strong> (Институт прикладной астрономии Российской Академии Наук) </p>
-									<p>1984-1990 - <strong>Ленинградский Политехнический Институт, радиофизический факультет</strong></p>
-									<p>1982-1984 - <strong>физико-математическая школа № 30</strong> </p>
+									<!--<p>1993-1998 - <strong>аспирантура по специальности «Астрофизика и радиоастрономия»</strong> (Институт прикладной астрономии Российской Академии Наук) </p>-->
+									<p>1994-2000 - <strong>Ленинградский Политехнический Институт, радиофизический факультет</strong></p>
+									<p>1992-1994 - <strong>физико-математическая школа № 30</strong> </p>
 									
                                 </div>
 
@@ -662,37 +588,7 @@ PHP/MySQL, проектирование БД.</span>
                             
                             
 							
-							<?php //echo $_SERVER['PHP_SELF']; ?>
-							<div class="col-md-12">
-                                <div class="contact-form">
-                                    <div class="row">
-									<?//if(isset($_POST['submit'])) {
-										 //echo '<div class="col-md-12"><div class="toggle-content text-center spacing"><p>Спасибо, Ваше сообщение принято!</p></div></div>';
-										 //$_POST['submit'] = '';
-									  //}
-									  
-										?>
-								
-                                    	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                                            <fieldset class="col-md-4">
-                                                <input id="name" type="text" name="contactname" placeholder="Ваше имя">
-                                            </fieldset>
-                                            <fieldset class="col-md-4">
-                                                <input type="email" name="email" id="email" placeholder="E-mail">
-                                            </fieldset>
-                                            <fieldset class="col-md-4">
-                                                <input type="text" name="subject" id="subject" placeholder="Тема письма">
-                                            </fieldset>
-                                            <fieldset class="col-md-12">
-                                                <textarea name="message" id="message" placeholder="Ваше сообщение"></textarea>
-                                            </fieldset><input type="hidden" name="param" value="1">
-                                            <fieldset class="col-md-12">
-                                                <input type="submit" name="submit" onclick="alert('Спасибо за Ваше обращение, я постараюсь быстро ответить Вам.')" value="Отправить" id="submit" class="button">
-                                            </fieldset>
-                                        </form>
-                                    </div> <!-- /.row -->
-                                </div> <!-- /.contact-form -->
-                            </div> <!-- /.col-md-12 -->
+							
 							
 							
 							
@@ -714,18 +610,14 @@ PHP/MySQL, проектирование БД.</span>
             </div><!-- /.footer --> 
         </div>
     </div> <!-- /.container-fluid -->
-<?php //echo $_POST['param'] ?>
-<?//$test = '/yusupova/index.php';?>
+
     <script src="js/vendor/jquery-1.10.1.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
     <script src="js/jquery.easing-1.3.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/plugins.js"></script>
 	
-	<!--<script>
-         var param;
-		 param = <?//=$test?>;
-    </script>-->
+	
     <script src="js/main.js"></script>
     <script type="text/javascript">
             
